@@ -42,16 +42,4 @@ class CoinViewModel @Inject constructor(
         }
     }
 
-    fun changeData(dataIndex: Int) {
-        var data = (_uiState.value as CoinUiState.Success).list.mapIndexed { index, item ->
-            if (dataIndex == index) {
-                item.copy(name = "Resul")
-            } else {
-                item
-            }
-        }
-        viewModelScope.launch {
-            _uiState.emit(CoinUiState.Success(data))
-        }
-    }
 }
